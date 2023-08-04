@@ -1,0 +1,30 @@
+.root {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  gap: 60px;
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 260px;
+
+    .filter__section {
+      display: flex;
+      flex-direction: column;
+      margin-top: 60px;
+
+      gap: 20px;
+    }
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: space-between;
+    justify-items: center;
+    align-content: space-between;
+    align-items: center;
+  }
+}

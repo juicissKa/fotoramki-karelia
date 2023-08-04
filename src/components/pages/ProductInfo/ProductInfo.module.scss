@@ -1,0 +1,48 @@
+.root {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+  position: relative;
+  .product {
+    &__info {
+      &__wrapper {
+        grid-column: 8 / 13;
+        width: 100%;
+
+        .add__wrapper {
+          display: flex;
+          width: 100%;
+          gap: 10px;
+          padding: 10px 0;
+        }
+
+        :global(.text-block) {
+          margin-top: 10px;
+        }
+      }
+    }
+    &__sizes {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 30px 0;
+      .size {
+        padding: 10px 20px;
+        border: 1px solid #b0b0b0;
+        cursor: pointer;
+        border-radius: 20px;
+
+        &:hover {
+          transition: all 0.3s;
+          border: 1px solid black;
+        }
+
+        &.active {
+          border: 1px solid black;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

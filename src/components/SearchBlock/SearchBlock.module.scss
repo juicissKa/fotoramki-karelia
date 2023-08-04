@@ -1,0 +1,29 @@
+.search {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &__wrapper {
+    position: relative;
+    width: 40%;
+    padding-bottom: 8px;
+    .search__icon {
+      position: absolute;
+      width: 24px;
+      background-color: transparent;
+      top: 10px;
+      left: 10px;
+      opacity: 0.5;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 36px;
+      border: 2px solid #b0b0b0;
+      border-radius: 10px;
+      position: relative;
+    }
+  }
+}

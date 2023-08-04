@@ -1,0 +1,27 @@
+.root {
+  width: 256px;
+
+  img {
+    width: 100%;
+    height: 256px;
+    border-radius: 20px;
+  }
+
+  .info {
+    .product__name {
+      display: inline-block;
+      padding: 5px 0;
+      font-weight: 700;
+    }
+
+    .chars {
+      height: 38px;
+      overflow: hidden;
+    }
+
+    :global(.price) {
+      font-size: 1.25rem;
+      padding: 10px 0;
+    }
+  }
+}

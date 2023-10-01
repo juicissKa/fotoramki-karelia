@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../../redux/reduxTypes";
+import { Product } from "../../../../redux/reduxTypes";
 import styles from "./ProductBlock.module.scss";
 
 const ProductBlock: React.FC<Product> = ({
   id,
   images,
-  product_properties,
-  product_info,
-  product_children,
+  name,
+  color,
+  width,
+  material,
+  price,
 }) => {
   return (
     <div className={styles.root}>
@@ -18,22 +20,14 @@ const ProductBlock: React.FC<Product> = ({
 
       <div className={styles.info}>
         <Link to="" className={styles.product__name}>
-          {product_info.name}
+          {name}
         </Link>
         <div className={styles.chars}>
           <p>
-            {product_properties
-              .map((property) => property.name + ": " + property.value)
-              .join(", ")}
+            материал: {material}, ширина: {width} мм, цвет: {color.name}
           </p>
         </div>
-        <div className="price">
-          {product_children.reduce(
-            (prev, current) => (prev < current.price ? prev : current.price),
-            9999999
-          )}{" "}
-          ₽
-        </div>
+        <div className="price">{price} ₽ / п.м.</div>
       </div>
     </div>
   );

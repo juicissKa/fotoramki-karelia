@@ -4,21 +4,32 @@
 
   gap: 60px;
   .filters {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
     width: 260px;
 
     .filter__section {
       display: flex;
       flex-direction: column;
-      margin-top: 60px;
 
       gap: 20px;
+
+      button {
+        border-radius: 10px;
+        padding: 12px;
+        background-color: white;
+        border: 1px solid black;
+        color: black;
+
+        &:hover {
+          background-color: black;
+          color: white;
+          transition: all 0.2s ease-in-out;
+        }
+      }
     }
   }
 
   .products {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -26,5 +37,12 @@
     justify-items: center;
     align-content: space-between;
     align-items: center;
+  }
+
+  .search {
+    &__block {
+      display: flex;
+      height: 51px;
+    }
   }
 }

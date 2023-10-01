@@ -20,7 +20,7 @@ const ImageSlider: React.FC<{ images: string[] | null | undefined }> = ({
 
   return (
     <div className={styles.root}>
-      <div className={styles.slide__list}>
+      <div className={styles.slide__list__wrapper}>
         <div className={styles.arrow__up} onClick={handleUpClick}>
           <svg
             data-name="Layer 1"
@@ -31,46 +31,48 @@ const ImageSlider: React.FC<{ images: string[] | null | undefined }> = ({
             <path d="M256,478,80,302l21.2-21.21L241,420.6V34h30V420.6L410.84,280.75,432,302Z" />
           </svg>
         </div>
-        <div
-          className={styles.slider__wrapper}
-          style={{
-            transform: `translateY(${
-              activeSlide > 2 ? (activeSlide - 2) * -170 : 0
-            }px)`,
-          }}
-        >
+        <div className={styles.slide__list}>
           <div
-            className={styles.slider}
-            style={{ transform: `translateY(${activeSlide * 170}px)` }}
-          ></div>
-        </div>
-        <div
-          className={styles.slides}
-          style={{
-            transform: `translateY(${
-              activeSlide > 2 ? (activeSlide - 2) * -170 : 0
-            }px)`,
-          }}
-        >
-          {images ? (
-            images.map((img, index) => (
+            className={styles.slider__wrapper}
+            style={{
+              transform: `translateY(${
+                activeSlide > 2 ? (activeSlide - 2) * -170 : 0
+              }px)`,
+            }}
+          >
+            <div
+              className={styles.slider}
+              style={{ transform: `translateY(${activeSlide * 170}px)` }}
+            ></div>
+          </div>
+          <div
+            className={styles.slides}
+            style={{
+              transform: `translateY(${
+                activeSlide > 2 ? (activeSlide - 2) * -170 : 0
+              }px)`,
+            }}
+          >
+            {images ? (
+              images.map((img, index) => (
+                <img
+                  src={img}
+                  alt=""
+                  className={styles.slide__small}
+                  onClick={() => setActiveSlide(index)}
+                  style={{ opacity: index === activeSlide ? "100%" : "50%" }}
+                />
+              ))
+            ) : (
               <img
-                src={img}
+                src={"/img/ramka.jpg"}
                 alt=""
                 className={styles.slide__small}
-                onClick={() => setActiveSlide(index)}
-                style={{ opacity: index === activeSlide ? "100%" : "50%" }}
+                onClick={() => setActiveSlide(0)}
+                style={{ opacity: "100%" }}
               />
-            ))
-          ) : (
-            <img
-              src={"/img/ramka.jpg"}
-              alt=""
-              className={styles.slide__small}
-              onClick={() => setActiveSlide(0)}
-              style={{ opacity: "100%" }}
-            />
-          )}
+            )}
+          </div>
         </div>
         <div className={styles.arrow__down} onClick={handleDownClick}>
           <svg
@@ -83,6 +85,7 @@ const ImageSlider: React.FC<{ images: string[] | null | undefined }> = ({
           </svg>
         </div>
       </div>
+
       <div className={styles.slide__wrapper}>
         <div
           className={styles.carousel}

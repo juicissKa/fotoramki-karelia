@@ -1,13 +1,21 @@
 import React from "react";
-import CategoryCard from "../../CategoryCard";
+import CategoryCard from "./CategoryCard";
 import styles from "./Home.module.scss";
 
 const Home: React.FC = () => {
   return (
     <div className={`container ${styles.root}`}>
       <div className={styles.categories__big}>
-        <CategoryCard title={"Рамки"} imgurl={"/img/ramka.jpg"} />
-        <CategoryCard title={"Холсты"} imgurl={"/img/holst.jpg"} />
+        <CategoryCard
+          title={"Рамки"}
+          imgurl={"/img/ramka.jpg"}
+          link={"catalog/"}
+        />
+        <CategoryCard
+          title={"Холсты"}
+          imgurl={"/img/holst.jpg"}
+          link={"canvas/"}
+        />
         <CategoryCard title={"Картины"} imgurl={"/img/kartina.jpg"} />
       </div>
       <div className={styles.categories__small}>

@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import styles from "./Sort.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import { SortType } from "../../redux/reduxTypes";
-import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { filtersSelector, setSort } from "../../redux/slices/filtersSlice";
+import { SortType } from "../../../../redux/reduxTypes";
+import { useAppDispatch, useAppSelector } from "../../../../redux/store";
+import {
+  filtersSelector,
+  setSort,
+} from "../../../../redux/slices/filtersSlice";
 
 const sortList: SortType[] = [
   { name: "популярность", order: "desc", sortValue: "name" },

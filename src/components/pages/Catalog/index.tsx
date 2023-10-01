@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ProductBlock from "../../ProductBlock";
+import ProductBlock from "./ProductBlock";
 import styles from "./Catalog.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import {
@@ -7,17 +7,18 @@ import {
   productsSelector,
 } from "../../../redux/slices/productsSlice";
 import { Status } from "../../../redux/reduxTypes";
-import ProductBlockSkeleton from "../../ProductBlock/Skeleton";
+import ProductBlockSkeleton from "./ProductBlock/Skeleton";
 
-import FilterList from "../../FilterList";
-import Sort from "../../Sort";
-import Pagination from "../../Pagination";
+import FilterList from "./FilterList";
+import Sort from "./Sort";
+import Pagination from "../../global/Pagination";
 import {
   fetchFilters,
   filtersSelector,
 } from "../../../redux/slices/filtersSlice";
 import { useNavigate } from "react-router-dom";
 import qs from "qs";
+import SearchBlock from "./SearchBlock";
 
 const Catalog: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,18 +28,21 @@ const Catalog: React.FC = () => {
     filters,
     status: filtersStatus,
     sort,
+    selectedFilters,
   } = useAppSelector(filtersSelector);
 
   const isMounted = useRef(false);
   const isSearch = useRef(false);
 
-  useEffect(() => {
+  const submitFilters = () => {
+    dispatch(fetchProducts({ sort, selectedFilters }));
     dispatch(fetchFilters());
-  }, [dispatch]);
+  };
 
   useEffect(() => {
     if (isMounted.current) {
-      const queryString = qs.stringify({});
+      const queryString = qs.stringify(selectedFilters);
+      console.log(queryString);
 
       navigate(`?${queryString}`);
     }
@@ -58,34 +62,35 @@ const Catalog: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (!isSearch.current) {
-      dispatch(fetchProducts(sort));
+      submitFilters();
     }
 
     isSearch.current = false;
-  }, [sort]);
+  }, [sort, dispatch]);
 
   return (
     <div className={`container ${styles.root}`}>
       <div className={styles.filters}>
-        <Sort />
         <div className={styles.filter__section}>
-          {filtersStatus === Status.SUCCESS &&
-            filters.product.map((filter) => (
-              <FilterList {...filter} key={filter.name} />
-            ))}
-          {filtersStatus === Status.SUCCESS &&
-            filters.child.map((filter) => (
-              <FilterList {...filter} key={filter.name} />
-            ))}
+          {filters.map((filter) => (
+            <FilterList filter={filter} key={filter.name} />
+          ))}
+          <button onClick={submitFilters}>Применить</button>
         </div>
       </div>
-      <div className={styles.products}>
-        {productsStatus === Status.LOADING
-          ? [...new Array(9)].map((elem, index) => (
-              <ProductBlockSkeleton key={index} />
-            ))
-          : items.map((item) => <ProductBlock key={item.id} {...item} />)}
-        <Pagination />
+      <div className={styles.products__block}>
+        <div className={styles.search__block}>
+          <SearchBlock />
+          <Sort />
+        </div>
+        <div className={styles.products}>
+          {productsStatus === Status.LOADING
+            ? [...new Array(9)].map((elem, index) => (
+                <ProductBlockSkeleton key={index} />
+              ))
+            : items.map((item) => <ProductBlock key={item.id} {...item} />)}
+          <Pagination />
+        </div>
       </div>
     </div>
   );

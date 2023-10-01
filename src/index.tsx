@@ -7,6 +7,7 @@ import { store } from "./redux/store";
 import Home from "./components/pages/Home";
 import Catalog from "./components/pages/Catalog";
 import ProductInfo from "./components/pages/ProductInfo";
+import Canvas from "./components/pages/Canvas";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/catalog/:id",
         element: <ProductInfo />,
+      },
+      {
+        path: "/canvas/",
+        element: <Canvas />,
+      },
+      {
+        path: "*",
+        element: <div>Страница не найдена!</div>,
       },
     ],
   },

@@ -1,17 +1,30 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { Product, ProductsSliceState, SortType, Status } from "../reduxTypes";
+import {
+  Filter,
+  Product,
+  ProductsSliceState,
+  SortType,
+  Status,
+} from "../reduxTypes";
 import { RootState } from "../store";
 import { setPageCount } from "./filtersSlice";
+import qs from "qs";
+import { parseFilters } from "../../utils/parseFilters";
 
-export const fetchProducts = createAsyncThunk<Product[], SortType>(
+export const fetchProducts = createAsyncThunk<
+  Product[],
+  { sort: SortType; selectedFilters: Filter[] }
+>(
   "products/fetchProductsStatus",
-  async (sort, thunkAPI) => {
+  async ({ sort, selectedFilters }, thunkAPI) => {
+    const parsedFilters = parseFilters(selectedFilters);
     const result = await axios.get(
-      `http://localhost:3001/products/?sortBy=${sort.sortValue}&orderBy=${sort.order}`
+      `http://localhost:3001/products/?sortBy=${sort.sortValue}&orderBy=${
+        sort.order
+      }&${qs.stringify(parsedFilters)}`
     );
     thunkAPI.dispatch(setPageCount(Math.ceil(result.data.count / 12)));
-    console.log(result.data.rows);
     return result.data.rows as Product[];
   }
 );

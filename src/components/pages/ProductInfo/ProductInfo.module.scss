@@ -3,6 +3,7 @@
   grid-template-columns: repeat(12, 1fr);
   gap: 30px;
   position: relative;
+  margin-top: 10px;
   .product {
     &__info {
       &__wrapper {

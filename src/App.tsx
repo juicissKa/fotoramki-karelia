@@ -1,6 +1,6 @@
 import React from "react";
 import "./scss/styles.scss";
-import Header from "./components/Header";
+import Header from "./components/global/Header";
 import { Outlet } from "react-router-dom";
 
 function App() {

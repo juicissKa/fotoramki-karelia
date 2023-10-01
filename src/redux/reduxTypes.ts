@@ -7,40 +7,25 @@ export enum Status {
 export type Filter = {
   name: string;
   eng_name: string;
-  filters: FilterValue[];
-};
-
-export type FilterValue = {
-  id: number;
-  value: string;
-};
-
-export type ProductInfo = {
-  id: number;
-  name: string;
-  description: string | null;
-  type: string;
-};
-
-export type ProductProperty = {
-  id: number;
-  name: string;
-  value: string;
-};
-
-export type ProductChild = {
-  id: number;
-  price: number;
-  count: number;
-  child_property: ProductProperty;
+  filters: string[];
 };
 
 export type Product = {
   id: number;
-  images: string[] | null;
-  product_properties: ProductProperty[];
-  product_info: ProductInfo;
-  product_children: ProductChild[];
+  name: string;
+  price: number;
+  width: number;
+  material: string;
+  images: string[];
+  description: string;
+  color_id: number;
+  color: Color;
+};
+
+export type Color = {
+  id: number;
+  name: string;
+  code: string[];
 };
 
 export type SortType = {
@@ -56,10 +41,8 @@ export type ProductsSliceState = {
 
 export type FiltersSliceState = {
   sort: SortType;
-  filters: {
-    product: Filter[];
-    child: Filter[];
-  };
+  filters: Filter[];
+  selectedFilters: Filter[];
   page: number;
   pageCount: number;
   status: Status;

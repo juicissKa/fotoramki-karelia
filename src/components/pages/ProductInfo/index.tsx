@@ -3,7 +3,7 @@ import styles from "./ProductInfo.module.scss";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Product } from "../../../redux/reduxTypes";
-import ImageSlider from "../../ImageSlider";
+import ImageSlider from "../../global/ImageSlider";
 
 const ProductInfo: React.FC = () => {
   const { id } = useParams();
@@ -32,27 +32,12 @@ const ProductInfo: React.FC = () => {
     <div className={`container ${styles.root}`}>
       <ImageSlider images={product?.images} />
       <div className={styles.product__info__wrapper}>
-        <h1 className="title">{product?.product_info.name}</h1>
+        <h1 className="title">{product?.name}</h1>
         <p className={styles.product__small__desc}>
-          {product?.product_properties
-            .map((property) => property.name + ": " + property.value)
-            .join(", ")}
+          Цвет: {product?.color.name}
         </p>
-        <div className={styles.product__sizes}>
-          {product?.product_children.map((child, index) => (
-            <div
-              className={`${styles.size} ${
-                currentProduct === index ? styles.active : ""
-              }`}
-              onClick={() => setCurrentProduct(index)}
-            >
-              {child.child_property.value}
-            </div>
-          ))}
-        </div>
-        <div className="price">
-          {product?.product_children[currentProduct].price} ₽
-        </div>
+        <div className={styles.product__sizes}></div>
+        <div className="price">{product?.price} ₽</div>
         <div className={styles.add__wrapper}>
           <button className="add__to__cart">Добавить в корзину</button>
           <button className="add__to__favorites">Добавить в избранное</button>

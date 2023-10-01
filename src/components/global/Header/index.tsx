@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBlock from "../SearchBlock";
+import SearchBlock from "../../pages/Catalog/SearchBlock";
 
 const Header: React.FC = () => {
   return (
@@ -82,8 +82,6 @@ const Header: React.FC = () => {
             </ul>
           </nav>
         </div>
-
-        <SearchBlock />
       </div>
     </header>
   );

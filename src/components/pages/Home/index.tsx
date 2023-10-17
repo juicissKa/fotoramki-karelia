@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       </section>
       <section className={styles.services__wrapper}>
         <h1>НАШИ УСЛУГИ</h1>
-        <section className={styles.services}>
+        <div className={styles.services}>
           <div className={styles.service}>
             <div className={styles.service__svg}>
               <svg
@@ -134,7 +134,17 @@ const Home: React.FC = () => {
               <h1>Печать на холсте и фотобумаге</h1>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+      <section className={styles.map}>
+        <div className={styles.text__wrapper}>
+          <h1>КАК НАС НАЙТИ</h1>
+        </div>
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?ll=34.310321%2C61.769221&mode=poi&poi%5Bpoint%5D=34.309899%2C61.769315&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D196087724653&z=18"
+          width="100%"
+          height="400"
+        ></iframe>
       </section>
     </div>
   );

@@ -1,5 +1,11 @@
 @import "../../../scss/variables.scss";
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid $border-color;
+  background-color: white;
+  z-index: 99;
   .nav__upper {
     background-color: $upper-nav-color;
     :global(.container) {
@@ -12,6 +18,11 @@ header {
     p {
       color: white;
       font-family: "Roboto", sans-serif;
+      text-wrap: nowrap;
+    }
+    .contacts {
+      display: flex;
+      gap: 10px;
     }
   }
   :global(.container) {
@@ -22,11 +33,17 @@ header {
       flex-direction: row;
       width: 100%;
       justify-content: space-between;
+      padding: 20px 10px;
+
       ul {
         display: flex;
         flex-direction: row;
         list-style: none;
         gap: 40px;
+        li {
+          display: flex;
+          align-items: center;
+        }
       }
     }
   }

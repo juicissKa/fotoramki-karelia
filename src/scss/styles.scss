@@ -62,12 +62,15 @@ button {
   }
 }
 
+.content {
+  margin-top: 98px;
+}
+
 .container {
-  max-width: 1360px;
+  max-width: 1280px;
   display: flex;
   justify-content: center;
   margin: auto;
-  padding: 20px 15px;
 }
 
 .arrow__down--icon {

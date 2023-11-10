@@ -80,16 +80,16 @@ const Header: React.FC = () => {
               <Link to="catalog">КАТАЛОГ БАГЕТА</Link>
             </li>
             <li>
-              <Link to="catalog">РАМКИ</Link>
+              <Link to="frames">РАМКИ</Link>
             </li>
             <li>
-              <Link to="catalog">ПОДРАМНИК</Link>
+              <Link to="canvas">ПОДРАМНИК</Link>
             </li>
             <li>
-              <Link to="catalog">ПЕЧАТЬ НА ХОЛСТЕ</Link>
+              <Link to="canvas">ПЕЧАТЬ НА ХОЛСТЕ</Link>
             </li>
             <li>
-              <Link to="catalog">ПЕЧАТЬ НА БУМАГЕ</Link>
+              <Link to="print">ПЕЧАТЬ НА БУМАГЕ</Link>
             </li>
           </ul>
         </nav>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ProductBlock from "./ProductBlock";
+import ProductBlock from "../../global/ProductBlock";
 import styles from "./Catalog.module.scss";
 import { useAppDispatch, useAppSelector } from "../../../redux/store";
 import {
@@ -7,7 +7,7 @@ import {
   productsSelector,
 } from "../../../redux/slices/productsSlice";
 import { Status } from "../../../redux/reduxTypes";
-import ProductBlockSkeleton from "./ProductBlock/Skeleton";
+import ProductBlockSkeleton from "../../global/ProductBlock/Skeleton";
 
 import FilterList from "./FilterList";
 import Sort from "./Sort";
@@ -88,7 +88,22 @@ const Catalog: React.FC = () => {
             ? [...new Array(9)].map((elem, index) => (
                 <ProductBlockSkeleton key={index} />
               ))
-            : items.map((item) => <ProductBlock key={item.id} {...item} />)}
+            : items.map((item) => {
+                const desc = `материал: ${item.material}, ширина: ${item.width} мм, цвет: ${item.color.name}`;
+                const price = `${item.price} ₽ / п.м.`;
+                return (
+                  <ProductBlock
+                    key={item.id}
+                    {...{
+                      id: item.id,
+                      name: item.name,
+                      desc,
+                      price,
+                      images: item.images,
+                    }}
+                  />
+                );
+              })}
           <Pagination />
         </div>
       </div>

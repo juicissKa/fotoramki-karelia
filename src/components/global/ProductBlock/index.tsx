@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Product } from "../../../../redux/reduxTypes";
+import { Product } from "../../../redux/reduxTypes";
 import styles from "./ProductBlock.module.scss";
 
-const ProductBlock: React.FC<Product> = ({
+type ProductBlock = {
+  id: number;
+  images: string[];
+  name: string;
+  desc: string;
+  price: string;
+};
+
+const ProductBlock: React.FC<ProductBlock> = ({
   id,
   images,
   name,
-  color,
-  width,
-  material,
+  desc,
   price,
 }) => {
   return (
@@ -28,11 +34,9 @@ const ProductBlock: React.FC<Product> = ({
           {name}
         </Link>
         <div className={styles.chars}>
-          <p>
-            материал: {material}, ширина: {width} мм, цвет: {color.name}
-          </p>
+          <p>{desc}</p>
         </div>
-        <div className="price">{price} ₽ / п.м.</div>
+        <div className="price">{price}</div>
       </div>
     </div>
   );

@@ -75,7 +75,7 @@ const Header: React.FC = () => {
             </svg>
           </Link>
 
-          <ul>
+          {/* <ul>
             <li>
               <Link to="catalog">КАТАЛОГ БАГЕТА</Link>
             </li>
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             <li>
               <Link to="print">ПЕЧАТЬ НА БУМАГЕ</Link>
             </li>
-          </ul>
+          </ul> */}
         </nav>
       </div>
     </header>

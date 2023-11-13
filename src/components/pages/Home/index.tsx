@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     <div className={`container ${styles.root} margin__first__elemnt`}>
       <section className={styles.intro}>
         <div className={styles.intro__desc}>
-          <div className={styles.text__wrapper}>
+          <div className={styles.text__wrapper} id={styles.intro__title}>
             <h1>БАГЕТНЫЙ САЛОН</h1>
             <p>
               Безусловно, граница обучения кадров требует определения и
@@ -134,6 +134,35 @@ const Home: React.FC = () => {
               <h1>Печать на холсте и фотобумаге</h1>
             </div>
           </div>
+        </div>
+      </section>
+      <section className={styles.frame__molding}>
+        <div className={styles.text__wrapper}>
+          <h1>БОЛЬШОЙ АССОРТИМЕНТ БАГЕТА</h1>
+          <p>
+            В целом, конечно, постоянный количественный рост и сфера нашей
+            активности обеспечивает актуальность поставленных обществом задач!
+            Также как дальнейшее развитие различных форм деятельности однозначно
+            фиксирует необходимость глубокомысленных рассуждений. Банальные, но
+            неопровержимые выводы, а также сторонники тоталитаризма в науке,
+            инициированные исключительно синтетически, описаны максимально
+            подробно.
+          </p>
+        </div>
+      </section>
+      <section className={styles.frames}>
+        <div className={styles.text__wrapper}>
+          <h1>ФОТОРАМКИ СОБСТВЕННОГО ПРОИЗВОДСТВА</h1>
+        </div>
+      </section>
+      <section className={styles.underframe}>
+        <div className={styles.text__wrapper}>
+          <h1>ИЗГОТОВЛЕНИЕ ПОДРАМНИКА ВЫСОКОГО КАЧЕСТВА</h1>
+        </div>
+      </section>
+      <section className={styles.canvas}>
+        <div className={styles.text__wrapper}>
+          <h1>ПЕЧАТЬ НА ХОЛСТЕ</h1>
         </div>
       </section>
       <section className={styles.map}>

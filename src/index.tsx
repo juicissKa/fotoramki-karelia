@@ -22,26 +22,26 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/catalog/",
-        element: <Catalog />,
-      },
-      {
-        path: "/catalog/:id",
-        element: <ProductInfo />,
-      },
-      {
-        path: "/frames/",
-        element: <Canvas />,
-      },
-      {
-        path: "/print/",
-        element: <Canvas />,
-      },
-      {
-        path: "/canvas/",
-        element: <Canvas />,
-      },
+      // {
+      //   path: "/catalog/",
+      //   element: <Catalog />,
+      // },
+      // {
+      //   path: "/catalog/:id",
+      //   element: <ProductInfo />,
+      // },
+      // {
+      //   path: "/frames/",
+      //   element: <Canvas />,
+      // },
+      // {
+      //   path: "/print/",
+      //   element: <Canvas />,
+      // },
+      // {
+      //   path: "/canvas/",
+      //   element: <Canvas />,
+      // },
       {
         path: "*",
         element: <div>Страница не найдена!</div>,

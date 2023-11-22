@@ -8,6 +8,8 @@ import Home from "./components/pages/Home";
 import Catalog from "./components/pages/Catalog";
 import ProductInfo from "./components/pages/ProductInfo";
 import Canvas from "./components/pages/Canvas";
+import Frames from "./components/pages/Frames";
+import Underframe from "./components/pages/Underframe";
 
 const router = createBrowserRouter([
   {
@@ -22,26 +24,26 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/catalog/",
-      //   element: <Catalog />,
-      // },
-      // {
-      //   path: "/catalog/:id",
-      //   element: <ProductInfo />,
-      // },
-      // {
-      //   path: "/frames/",
-      //   element: <Canvas />,
-      // },
-      // {
-      //   path: "/print/",
-      //   element: <Canvas />,
-      // },
-      // {
-      //   path: "/canvas/",
-      //   element: <Canvas />,
-      // },
+      {
+        path: "/catalog/",
+        element: <Catalog />,
+      },
+      {
+        path: "/catalog/:id",
+        element: <ProductInfo />,
+      },
+      {
+        path: "/frames/",
+        element: <Frames />,
+      },
+      {
+        path: "/underframe/",
+        element: <Underframe />,
+      },
+      {
+        path: "/canvas/",
+        element: <Canvas />,
+      },
       {
         path: "*",
         element: <div>Страница не найдена!</div>,

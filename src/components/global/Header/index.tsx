@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,8 +9,29 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Header: React.FC = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const handleScroll = () => {
+    const position = window.scrollY;
+    if (position != 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <header>
+    <header
+      style={{
+        borderBottom: isScrolled ? "1px solid #ddd" : "1px solid white",
+      }}
+    >
       <nav className={styles.nav__upper}>
         <div className="container">
           <p>
@@ -75,23 +96,20 @@ const Header: React.FC = () => {
             </svg>
           </Link>
 
-          {/* <ul>
+          <ul>
             <li>
-              <Link to="catalog">КАТАЛОГ БАГЕТА</Link>
+              <Link to="/catalog">КАТАЛОГ БАГЕТА</Link>
             </li>
             <li>
-              <Link to="frames">РАМКИ</Link>
+              <Link to="/frames">ФОТОРАМКИ</Link>
             </li>
             <li>
-              <Link to="canvas">ПОДРАМНИК</Link>
+              <Link to="/underframe">ПОДРАМНИК</Link>
             </li>
             <li>
-              <Link to="canvas">ПЕЧАТЬ НА ХОЛСТЕ</Link>
+              <Link to="/canvas">ПЕЧАТЬ НА ХОЛСТЕ</Link>
             </li>
-            <li>
-              <Link to="print">ПЕЧАТЬ НА БУМАГЕ</Link>
-            </li>
-          </ul> */}
+          </ul>
         </nav>
       </div>
     </header>

@@ -1,6 +1,8 @@
 import React from "react";
 
 import styles from "./Home.module.scss";
+import Collage from "../../global/Collage";
+import CollageItem from "../../global/Collage/CollageItem";
 
 const Home: React.FC = () => {
   return (
@@ -136,7 +138,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className={styles.frame__molding}>
+      <section className={styles.frame__molding} id="frame__molding">
         <div className={styles.text__wrapper}>
           <h1>БОЛЬШОЙ АССОРТИМЕНТ БАГЕТА</h1>
           <p>
@@ -149,23 +151,109 @@ const Home: React.FC = () => {
             подробно.
           </p>
         </div>
+        <Collage
+          {...{
+            colNumber: 9,
+            rowNumber: 3,
+            width: "100%",
+            height: "500px",
+            gap: "20px",
+          }}
+        >
+          <CollageItem col={7} row={3}>
+            <img
+              src="/img/багетка.jpg"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem col={2} row={2}>
+            <img
+              src="/img/frame.png"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem>
+            <img
+              src="/img/holst.jpg"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem>
+            <img
+              src="/img/jewerly.jpg"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+        </Collage>
       </section>
-      <section className={styles.frames}>
+      <section className={styles.frames} id="frame">
         <div className={styles.text__wrapper}>
-          <h1>ФОТОРАМКИ СОБСТВЕННОГО ПРОИЗВОДСТВА</h1>
+          <h1>СОБСТВЕННОЕ ПРОИЗВОДСТВО</h1>
+          <p>
+            В целом, конечно, постоянный количественный рост и сфера нашей
+            активности обеспечивает актуальность поставленных обществом задач!
+            Также как дальнейшее развитие различных форм деятельности однозначно
+            фиксирует необходимость глубокомысленных рассуждений. Банальные, но
+            неопровержимые выводы, а также сторонники тоталитаризма в науке,
+            инициированные исключительно синтетически, описаны максимально
+            подробно.
+          </p>
         </div>
+        <Collage
+          {...{
+            colNumber: 9,
+            rowNumber: 3,
+            width: "100%",
+            height: "500px",
+            gap: "20px",
+          }}
+        >
+          <CollageItem col={7} row={3}>
+            <img
+              src="/img/багетка.jpg"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem col={2} row={2}>
+            <img
+              src="/img/frame.png"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem>
+            <img
+              src="/img/holst.jpg"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+          <CollageItem>
+            <img
+              src="/img/jewerly.jpg"
+              style={{
+                width: "100%",
+              }}
+            />
+          </CollageItem>
+        </Collage>
       </section>
-      <section className={styles.underframe}>
-        <div className={styles.text__wrapper}>
-          <h1>ИЗГОТОВЛЕНИЕ ПОДРАМНИКА ВЫСОКОГО КАЧЕСТВА</h1>
-        </div>
-      </section>
-      <section className={styles.canvas}>
-        <div className={styles.text__wrapper}>
-          <h1>ПЕЧАТЬ НА ХОЛСТЕ</h1>
-        </div>
-      </section>
-      <section className={styles.map}>
+
+      <section className={styles.map} id="contacts">
         <div className={styles.text__wrapper}>
           <h1>КОНТАКТЫ</h1>
         </div>

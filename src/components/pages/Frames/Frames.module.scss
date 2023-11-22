@@ -1,0 +1,18 @@
+@import url("../../../scss/styles.scss");
+
+.root {
+  display: block;
+  padding: 15px;
+  .frames__section {
+    .frames {
+      display: grid;
+      margin-top: 30px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      img {
+        max-height: 350px;
+      }
+      font-size: 1.2rem;
+    }
+  }
+}

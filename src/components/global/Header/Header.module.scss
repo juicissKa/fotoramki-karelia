@@ -5,6 +5,8 @@ header {
   width: 100%;
   background-color: white;
   z-index: 99;
+  transition: all 0.5s ease;
+
   .nav__upper {
     background-color: $upper-nav-color;
     :global(.container) {
@@ -42,6 +44,8 @@ header {
         li {
           display: flex;
           align-items: center;
+          font-weight: 500;
+          font-size: 1rem;
         }
       }
     }
